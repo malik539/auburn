@@ -66,40 +66,78 @@ header.site{background:var(--navy);color:#fff;position:relative;z-index:5}
 @media(min-width:768px){.logo{width:200px}.nav-phone{display:inline-flex}.nav .btn-call{display:none}.nav .btn{font-size:15px;padding:11px 22px}}
 
 /* Hero */
-.hero{background:radial-gradient(1200px 600px at 85% -10%,rgba(245,169,61,.22),transparent 60%),radial-gradient(900px 500px at -10% 110%,rgba(27,58,104,.9),transparent 60%),linear-gradient(180deg,var(--navy) 0%,#0E2244 100%);color:#fff;padding:28px 0 26px;position:relative}
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#0B1B33 0%,#0E2244 100%);color:#fff;padding:28px 0 26px;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.2px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.25) 70%,transparent);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.25) 70%,transparent)}
+.hero-bg .glow{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75}
+.hero-bg .g1{width:620px;height:620px;right:-140px;top:-220px;background:radial-gradient(circle,rgba(245,169,61,.55),rgba(232,128,42,.12) 55%,transparent 72%)}
+.hero-bg .g2{width:560px;height:560px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(43,96,170,.75),transparent 70%)}
+.hero-bg .ring{position:absolute;right:6%;top:-8%;width:46vw;max-width:720px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(245,169,61,.18);box-shadow:inset 0 0 0 60px rgba(255,255,255,.015)}
 .hero-grid{display:grid;gap:26px}
-@media(min-width:1024px){.hero{padding:44px 0 34px}.hero-grid{grid-template-columns:55fr 45fr;gap:44px;align-items:start}}
+@media(min-width:1024px){.hero{padding:48px 0 36px}.hero-grid{grid-template-columns:55fr 45fr;gap:48px;align-items:start}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
 .eyebrow::before{content:"";width:22px;height:2px;background:var(--amber);border-radius:2px}
 .hero h1{font-size:clamp(30px,6.2vw,46px);margin:14px 0 12px;line-height:1.08}
-.hero h1 em{font-style:normal;color:var(--amber);white-space:nowrap}
+.hero h1 em{font-style:normal;color:var(--amber);white-space:nowrap;background:linear-gradient(90deg,#FFC46A,#F5A93D 55%,#E8802A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero .tag{font-size:clamp(17px,2.4vw,20px);font-weight:800;color:#fff;margin-bottom:8px}
 .hero .lead{color:rgba(255,255,255,.78);font-size:15.5px;max-width:560px}
-.match{margin:20px 0 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:14px 16px;backdrop-filter:blur(6px);max-width:560px}
-.match-head{display:grid;grid-template-columns:1fr 36px 1fr;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);padding:0 2px 8px;border-bottom:1px solid rgba(255,255,255,.12)}
-.match-head span:last-child{text-align:right;color:var(--amber)}
-.match-row{display:grid;grid-template-columns:1fr 36px 1fr;align-items:center;padding:9px 2px;border-bottom:1px solid rgba(255,255,255,.08);font-weight:800;font-size:clamp(18px,3.5vw,22px)}
-.match-row:last-of-type{border-bottom:0}
-.match-row .arrow{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
-.match-row .arrow svg{width:20px;height:20px;color:rgba(255,255,255,.55)}
-.match-row .we{text-align:right;color:var(--amber)}
-.match-row .we small{font-size:12px;font-weight:700;color:rgba(255,255,255,.55);margin-right:6px;letter-spacing:.04em}
-.match-foot{font-size:12.5px;color:rgba(255,255,255,.65);padding-top:8px;border-top:1px solid rgba(255,255,255,.12);margin-top:4px}
-@media(max-width:639px){.hero{padding:22px 0 24px}.hero .lead{display:none}.hero h1{margin:12px 0 8px}.match{margin:14px 0 14px;padding:12px 14px}.match-row{padding:7px 2px;font-size:19px}.match-foot{font-size:12px}}
-.hero-points{display:grid;gap:8px;margin:0 0 20px;max-width:560px}
-.hero-points li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,.9)}
-.hero-points svg{width:18px;height:18px;color:var(--amber);flex:none;margin-top:2px}
+/* Deposit selector */
+.match{margin:20px 0 18px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:16px;backdrop-filter:blur(6px);max-width:600px;box-shadow:0 20px 50px -30px rgba(0,0,0,.7)}
+.match-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.match-title{font-weight:800;font-size:14.5px;color:#fff}
+.match-max{flex:none;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(245,169,61,.45);border-radius:999px;padding:4px 9px;white-space:nowrap}
+.match-opts{display:grid;gap:8px}
+@media(min-width:480px){.match-opts{grid-template-columns:repeat(3,1fr)}}
+.opt{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"l1 . l2" "v arr m";align-items:center;column-gap:8px;row-gap:2px;text-align:left;background:rgba(11,27,51,.55);border:1.5px solid rgba(255,255,255,.14);border-radius:14px;padding:11px 13px;color:#fff;font:inherit;cursor:pointer;transition:border-color .15s,background-color .15s,transform .15s;position:relative}
+@media(min-width:480px){.opt{grid-template-columns:1fr;grid-template-areas:"l1" "v" "arr" "l2" "m";text-align:center;row-gap:0;padding:12px 10px 13px}.opt .arr{transform:rotate(90deg);margin:2px auto}}
+.opt .l{grid-area:l1;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.opt .l:nth-of-type(4){grid-area:l2;color:rgba(245,169,61,.8)}
+.opt .v{grid-area:v;font-size:22px;font-weight:800;line-height:1.1}
+.opt .arr{grid-area:arr;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.opt .arr svg{width:18px;height:18px;color:rgba(255,255,255,.5)}
+.opt .m{grid-area:m;font-size:22px;font-weight:800;color:var(--amber);line-height:1.1}
+.opt:hover{border-color:rgba(245,169,61,.6);background:rgba(11,27,51,.8)}
+.opt.sel{border-color:var(--amber);background:rgba(245,169,61,.12);box-shadow:0 0 0 3px rgba(245,169,61,.2)}
+.opt.sel::after{content:"";position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--amber) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1B33' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12.5 4 4L18 8'/%3E%3C/svg%3E") center/12px no-repeat}
+.match-foot{font-size:12.5px;color:rgba(255,255,255,.65);margin-top:12px;line-height:1.45}
+@media(max-width:639px){.hero{padding:22px 0 24px}.hero .lead{display:none}.hero h1{margin:12px 0 8px}.match{margin:14px 0 14px;padding:14px}.match-top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:10px}.match-foot{font-size:12px}.value-chips li{font-size:11.5px;padding:4px 8px}}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
 .hero-ctas .btn{flex:1 1 220px}
 @media(min-width:1024px){.hero-ctas .btn{flex:0 1 auto}}
-
+.proof{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:18px}
+.proof-doc{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.7)}
+.proof-doc img{width:44px;height:44px;border-radius:50%;border:2px solid var(--amber);object-fit:cover}
+.proof-doc b{display:block;color:#fff;font-size:14px}
+.proof-rating{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:#fff}
+.proof-rating .stars{display:inline-flex;gap:2px}
+.proof-rating .stars svg{width:15px;height:15px;color:var(--amber)}
+.proof-rating .g{font-weight:600;color:rgba(255,255,255,.7)}
 /* Form card */
-.form-card{background:#fff;color:var(--ink);border-radius:22px;padding:22px 18px 18px;box-shadow:var(--shadow);position:relative}
+.hero-side{position:relative}
+.form-card{background:#fff;color:var(--ink);border-radius:22px;padding:22px 18px 18px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6),0 4px 14px -6px rgba(11,27,51,.2);position:relative}
+.seal{position:absolute;top:-16px;right:14px;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#FFD27A,#F5A93D 45%,#E8802A);color:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1;font-weight:800;transform:rotate(8deg);box-shadow:0 10px 24px -8px rgba(232,128,42,.8),0 0 0 4px #fff;z-index:2}
+.seal b{font-size:15px;letter-spacing:-.02em}
+.seal i{font-style:normal;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-top:3px}
+@media(min-width:480px){.seal{width:96px;height:96px;top:-20px;right:18px}.seal b{font-size:17px}}
+.value-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.value-chips li{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;color:var(--navy);background:var(--amber-soft);border:1px solid #FFE2B8;border-radius:999px;padding:5px 9px}
+.value-chips svg{width:14px;height:14px;color:var(--amber-2)}
+.scarcity{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--navy)}
+.scarcity .dot{width:9px;height:9px;border-radius:50%;background:#E34D3A;box-shadow:0 0 0 0 rgba(227,77,58,.5);animation:pulse 1.8s ease-out infinite;flex:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(227,77,58,.55)}70%{box-shadow:0 0 0 8px rgba(227,77,58,0)}100%{box-shadow:0 0 0 0 rgba(227,77,58,0)}}
+.form-card.flash{animation:flash .8s ease}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(245,169,61,.0),0 30px 70px -30px rgba(0,0,0,.6)}30%{box-shadow:0 0 0 6px rgba(245,169,61,.55),0 30px 70px -30px rgba(0,0,0,.6)}100%{box-shadow:0 0 0 0 rgba(245,169,61,0),0 30px 70px -30px rgba(0,0,0,.6)}}
+.mini-review{display:none;margin:14px 10px 0;padding:14px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;color:#fff}
+@media(min-width:1024px){.mini-review{display:block}}
+.mini-review .stars{display:inline-flex;gap:2px;margin-bottom:6px}
+.mini-review .stars svg{width:14px;height:14px;color:var(--amber)}
+.mini-review blockquote{margin:0;font-size:14px;font-weight:700}
+.mini-review figcaption{font-size:12.5px;color:rgba(255,255,255,.65);margin-top:4px}
 @media(min-width:480px){.form-card{padding:26px 26px 22px}}
 .form-card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--amber-2),var(--amber))}
-.form-head{margin-bottom:14px}
+.form-head{margin-bottom:14px;padding-right:84px}
+@media(min-width:480px){.form-head{padding-right:96px}}
 .form-head .kicker{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-2)}
-.form-head h2{font-size:22px;margin-top:4px}
+.form-head h2{font-size:21px;margin-top:4px;line-height:1.15}
 .form-head p{color:var(--muted);font-size:14px;margin-top:6px}
 .form-head p b{color:var(--ink)}
 .fields{display:grid;gap:12px}
@@ -127,16 +165,11 @@ header.site{background:var(--navy);color:#fff;position:relative;z-index:5}
 .form-foot svg{width:14px;height:14px;display:inline;vertical-align:-2px;margin-right:4px;color:#2E9E5B}
 
 /* Trust strip */
-.trust{margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:grid;gap:12px}
-.trust ul{display:flex;flex-wrap:wrap;gap:8px 16px}
-.trust li{display:flex;align-items:center;gap:8px;line-height:1.3;white-space:nowrap;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.9)}
-.trust li svg{width:18px;height:18px;color:var(--amber);flex:none;margin-top:0}
-.rating{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 14px;justify-self:start}
-.rating .stars{display:inline-flex;gap:2px}
-.rating .stars svg{width:16px;height:16px;color:var(--amber)}
-.rating span.g{font-weight:600;color:rgba(255,255,255,.7)}
-@media(min-width:768px){.trust{grid-template-columns:1fr auto;align-items:center}.trust ul{display:flex;flex-wrap:wrap;gap:10px 18px}.trust li{white-space:nowrap}}
-@media(min-width:1100px){.trust li{white-space:nowrap;font-size:13px}}
+.trust{margin-top:26px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media(min-width:768px){.trust{grid-template-columns:repeat(4,1fr);gap:16px}}
+.trust li{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.92);line-height:1.25}
+.trust .ic{width:36px;height:36px;flex:none;border-radius:10px;background:rgba(245,169,61,.14);border:1px solid rgba(245,169,61,.3);display:flex;align-items:center;justify-content:center;color:var(--amber)}
+.trust .ic svg{width:18px;height:18px}
 
 /* Sections */
 section{padding:44px 0}
@@ -284,7 +317,7 @@ footer a{color:rgba(255,255,255,.8)}
 main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 640px}
 .doc-media img{opacity:0;transition:opacity .5s ease}
 .doc-media img.ld,.no-js .doc-media img{opacity:1}
-@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.doc-media img{opacity:1;transition:none}}
+@media(prefers-reduced-motion:reduce){.scarcity .dot,.form-card.flash{animation:none}.js .rv{opacity:1;transform:none;transition:none}.doc-media img{opacity:1;transition:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -331,48 +364,62 @@ main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 640p
 <main id="top">
 <!-- ============ 2. HERO + OFFER FORM ============ -->
 <section class="hero" aria-labelledby="h1">
+  <div class="hero-bg" aria-hidden="true"><span class="glow g1"></span><span class="glow g2"></span><span class="ring"></span></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="eyebrow">Auburn, WA · New Patient Offer</span>
         <h1 id="h1">We Match Your Down Payment — <em>Up to $1,000 Off</em> Braces or Invisalign®</h1>
         <p class="tag">Your smile. Your strategy. No cookie-cutter treatment.</p>
         <p class="lead">Partner with Auburn’s trusted Growth &amp; Smile Development Specialist for proactive, personalized orthodontic care built around your life and long-term health.</p>
 
-        <div class="match" role="table" aria-label="Auburn Ortho Down Payment Match examples">
-          <div class="match-head" role="row"><span role="columnheader">You put down</span><span aria-hidden="true"></span><span role="columnheader">We match</span></div>
-          <div class="match-row" role="row"><span role="cell">$500</span><span class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="we" role="cell"><small>+</small>$500</span></div>
-          <div class="match-row" role="row"><span role="cell">$750</span><span class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="we" role="cell"><small>+</small>$750</span></div>
-          <div class="match-row" role="row"><span role="cell">$1,000</span><span class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="we" role="cell"><small>+</small>$1,000</span></div>
-          <p class="match-foot">Choose your down payment and we match it dollar-for-dollar off your total treatment investment. Maximum match: $1,000.</p>
+        <div class="match" role="group" aria-labelledby="match-h">
+          <div class="match-top">
+            <p id="match-h" class="match-title">Choose your down payment — we match it dollar-for-dollar</p>
+            <span class="match-max">Max match $1,000</span>
+          </div>
+          <div class="match-opts">
+            <button type="button" class="opt" data-dp="$500"><span class="l">You put down</span><span class="v">$500</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="l">We match</span><span class="m">+$500</span></button>
+            <button type="button" class="opt" data-dp="$750"><span class="l">You put down</span><span class="v">$750</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="l">We match</span><span class="m">+$750</span></button>
+            <button type="button" class="opt" data-dp="$1,000"><span class="l">You put down</span><span class="v">$1,000</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span><span class="l">We match</span><span class="m">+$1,000</span></button>
+          </div>
+          <p class="match-foot">Your match comes off your total treatment investment. Tap an amount to pre-fill your request — the more you invest upfront, the more you save, plus flexible monthly payments as low as $200/month.</p>
         </div>
-
-        <ul class="hero-points">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>The more you invest upfront, the more you save — plus flexible monthly payments as low as $200/month</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Complimentary consultation, 3D digital scan &amp; free Before-&amp;-After Smile Simulation</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>New patients only. Limited consultation spots available this month.</span></li>
-        </ul>
 
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#offer-form" data-track="cta_click" data-loc="hero">Claim My $1,000 Deposit Match<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn-ghost" href="tel:2533690768" data-track="phone_click" data-loc="hero"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call (253) 369-0768</a>
         </div>
+
+        <div class="proof">
+          <div class="proof-doc">
+            <img src="assets/img/dr-steinhart-avatar-72.webp" srcset="assets/img/dr-steinhart-avatar-144.webp 2x" width="44" height="44" alt="Dr. Todd Steinhart" decoding="async">
+            <span><b>Dr. Todd Steinhart</b>Growth &amp; Smile Development Specialist · 20+ years</span>
+          </div>
+          <div class="proof-rating" aria-label="5.0 rating from 77 Google reviews"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><b>5.0</b><span class="g">· 77 Google Reviews</span></div>
+        </div>
       </div>
 
       <!-- FORM -->
-      <div class="form-card" id="offer-form">
-        <div class="form-head">
-          <span class="kicker">Limited-Time Offer</span>
-          <h2>The Auburn Ortho Down Payment Match</h2>
-          <p>Tell us your planned down payment and we’ll reserve your <b>complimentary consultation</b>.</p>
-        </div>
-        <!--
-          FORM INTEGRATION
-          Set CONFIG.formEndpoint (bottom of page) to your GHL / LeadConnector inbound webhook URL,
-          or set the form "action" below for a standard POST. Field names: first_name, last_name,
-          phone, email, planned_down_payment, consent. See README.md.
-        -->
-        <form id="lead-form" method="post" action="" novalidate>
+      <div class="hero-side">
+        <div class="form-card" id="offer-form">
+          <span class="seal" aria-hidden="true"><b>Up to<br>$1,000</b><i>off</i></span>
+          <div class="form-head">
+            <span class="kicker">Limited-Time Offer</span>
+            <h2>The Auburn Ortho Down Payment Match</h2>
+            <ul class="value-chips" aria-label="Included with your visit">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Complimentary consultation</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>3D digital scan</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free smile simulation</li>
+            </ul>
+          </div>
+          <!--
+            FORM INTEGRATION
+            Set CONFIG.formEndpoint (bottom of page) to your GHL / LeadConnector inbound webhook URL,
+            or set the form "action" below for a standard POST. Field names: first_name, last_name,
+            phone, email, planned_down_payment, consent. See README.md.
+          -->
+          <form id="lead-form" method="post" action="" novalidate>
           <div class="fields">
             <div class="field"><label for="f-first">First Name <span class="req" aria-hidden="true">*</span></label><input id="f-first" name="first_name" type="text" autocomplete="given-name" required><p class="err">Please enter your first name.</p></div>
             <div class="field"><label for="f-last">Last Name <span class="req" aria-hidden="true">*</span></label><input id="f-last" name="last_name" type="text" autocomplete="family-name" required><p class="err">Please enter your last name.</p></div>
@@ -395,22 +442,26 @@ main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 640p
             <p class="err">Please agree to the terms to continue.</p>
           </div>
           <div class="bot" id="bot-protection" aria-live="polite"></div>
+          <p class="scarcity"><span class="dot" aria-hidden="true"></span>New patients only · Limited consultation spots available this month</p>
           <p class="form-msg" id="form-msg" role="alert"></p>
           <button class="btn btn-primary btn-block btn-submit" type="submit" id="submit-btn">Claim My $1,000 Deposit Match &amp; Book Consultation</button>
-          <p class="form-foot"><svg aria-hidden="true"><use href="#i-lock"/></svg>Your information is private and never shared.</p>
+          <p class="form-foot"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private &amp; secure · Takes under a minute · No obligation</p>
         </form>
+        </div>
+        <figure class="mini-review">
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <blockquote>“Excellent care and wonderful office staff!”</blockquote>
+          <figcaption>Alison Pringle · Google Review</figcaption>
+        </figure>
       </div>
     </div>
 
-    <div class="trust">
-      <ul aria-label="Why patients choose Auburn Orthodontics">
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Auburn’s Smile Development Specialist</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Expert Invisalign &amp; Braces</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Custom Payment Plans</li>
-        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Limited Spots Available</li>
-      </ul>
-      <div class="rating" aria-label="5.0 rating from 77 Google reviews"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>5.0 Rating <span class="g">· 77 Reviews</span></div>
-    </div>
+    <ul class="trust" aria-label="Why patients choose Auburn Orthodontics">
+      <li><span class="ic"><svg aria-hidden="true"><use href="#i-growth"/></svg></span>Auburn’s Smile Development Specialist</li>
+      <li><span class="ic"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></span>Expert Invisalign &amp; Braces</li>
+      <li><span class="ic"><svg aria-hidden="true"><use href="#i-price"/></svg></span>Custom Payment Plans</li>
+      <li><span class="ic"><svg aria-hidden="true"><use href="#i-timing"/></svg></span>Limited Spots Available</li>
+    </ul>
   </div>
 </section>
 
@@ -642,6 +693,26 @@ var CONFIG = {
     // Safety net: reveal anything still hidden after 4s (e.g. print, unusual viewports)
     setTimeout(function(){ items.forEach(function(el){ el.classList.add("in"); }); }, 4000);
   })();
+
+  // Deposit selector: pre-fills the form's Planned Down Payment
+  var dpSelect = document.getElementById("f-dp"), opts = document.querySelectorAll(".opt");
+  function syncOpts(){ opts.forEach(function(o){ o.classList.toggle("sel", o.getAttribute("data-dp") === dpSelect.value); o.setAttribute("aria-pressed", o.classList.contains("sel") ? "true" : "false"); }); }
+  opts.forEach(function(o){
+    o.setAttribute("aria-pressed", "false");
+    o.addEventListener("click", function(){
+      dpSelect.value = o.getAttribute("data-dp"); syncOpts();
+      dpSelect.closest(".field").classList.remove("invalid");
+      track("deposit_select", {planned_down_payment: dpSelect.value, location: "hero"});
+      var card = document.getElementById("offer-form");
+      card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash");
+      if (window.innerWidth < 1024) {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        card.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+        setTimeout(function(){ document.getElementById("f-first").focus({preventScroll: true}); }, reduce ? 0 : 450);
+      }
+    });
+  });
+  dpSelect.addEventListener("change", syncOpts);
 
   // Sticky mobile bar: show after scrolling begins, hide while the form is on screen
   var sticky = document.getElementById("sticky"), formCard = document.getElementById("offer-form");
