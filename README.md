@@ -5,7 +5,7 @@ Static, dependency-free landing page for the **We Match Your Down Payment — Up
 ```
 index.html          Landing page (all CSS/JS inline for a single-request render)
 thank-you.html      Conversion page shown after a successful form submission
-assets/img/         logo-white.webp (supplied logo). Add doctor / practice photos here.
+assets/img/         Logo and Dr. Steinhart photo (WebP, two sizes)
 assets/fonts/       Self-hosted Manrope variable font (latin subset, 25 KB)
 ```
 
@@ -23,11 +23,13 @@ To use the existing LeadConnector **embedded form** instead of the native form, 
 ### dataLayer events
 `phone_click`, `cta_click`, `directions_click` (with `location`), `form_submit`, `form_submit_success` (with `planned_down_payment`), and `generate_lead` on the thank-you page.
 
-## Images still needed
-Only the logo was supplied. Drop-in slots are commented in `index.html`:
-
-- **Dr. Todd Steinhart** — `assets/img/dr-todd-steinhart.webp` (≈600×480, WebP). Replace the monogram placeholder in the "Meet Your Doctor" card. Verify the photo is Dr. Steinhart, not Dr. Heather Woloshyn.
+## Images
+- `assets/img/logo-white.webp` — supplied logo (white mark, used on navy).
+- `assets/img/dr-todd-steinhart-480.webp` / `-800.webp` — supplied, verified photo of Dr. Todd Steinhart, served via `srcset`.
 - Optional practice / patient imagery can be added to the final CTA section. No stock photography is used.
+
+## Reviews ticker
+Seven authentic Google reviews run in a CSS-only ticker (`.ticker` / `.track`). The list is duplicated once (second copy `aria-hidden`) for a seamless loop; it pauses on hover/focus and becomes a plain swipeable row under `prefers-reduced-motion`. To add a review, add the same `<li class="review">` to both copies.
 
 ## Content flags for client review
 - **Early Crowding & Expansion** — the source duplicated the airway text. The card uses only the approved "Proactive Growth Guidance" wording.
