@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0B1B33">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1B33'/%3E%3Cpath d='M18 46 30 16h4l12 30h-7l-2.6-7H27.6L25 46zm11.5-13h5l-2.5-7z' fill='%23F5A93D'/%3E%3C/svg%3E">
+<script>document.documentElement.className+=" js"</script>
 <link rel="preload" href="assets/fonts/manrope-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Manrope";font-style:normal;font-weight:500 800;font-display:swap;src:url("assets/fonts/manrope-latin-var.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -277,6 +278,13 @@ footer a{color:rgba(255,255,255,.8)}
 .sticky .btn{min-height:50px;font-size:15px;padding:10px 12px}
 @media(min-width:1024px){.sticky{display:none}}
 
+/* Scroll reveal: opacity/transform only (no layout shift), JS-gated, off under reduced motion */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*60ms)}
+.js .rv.in{opacity:1;transform:none}
+main>section:not(.hero){content-visibility:auto;contain-intrinsic-size:auto 640px}
+.doc-media img{opacity:0;transition:opacity .5s ease}
+.doc-media img.ld,.no-js .doc-media img{opacity:1}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.doc-media img{opacity:1;transition:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -409,39 +417,39 @@ footer a{color:rgba(255,255,255,.8)}
 <!-- ============ 3. WHY AUBURN ORTHODONTICS ============ -->
 <section class="alt" aria-labelledby="why-h">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head center" data-reveal>
       <span class="eyebrow">The Auburn Difference</span>
       <h2 id="why-h">Orthodontics Built Around You—Not a “One-Size-Fits-All” Formula</h2>
       <p>Most practices tell you to “wait and see” until all permanent teeth are in, or treat every smile with the exact same routine. We do things differently. Whether you’re noticing early signs of crowding in your child, seeking guidance on airway and mouth breathing, or finally prioritizing your own adult smile, you deserve to be seen, heard, and celebrated.</p>
     </div>
 
-    <ul class="pillars">
+    <ul class="pillars" data-reveal-group>
       <li class="pillar"><span class="ic"><svg aria-hidden="true"><use href="#i-target"/></svg></span><div><h3>No Cookie-Cutter Plans</h3><p>Every smile strategy is tailored to your unique lifestyle and goals.</p></div></li>
       <li class="pillar"><span class="ic"><svg aria-hidden="true"><use href="#i-timing"/></svg></span><div><h3>Proactive Timing</h3><p>We recommend treatment at the right time—not simply the earliest or latest.</p></div></li>
       <li class="pillar"><span class="ic"><svg aria-hidden="true"><use href="#i-hands"/></svg></span><div><h3>True Partnership</h3><p>We answer your questions, walk through the “why” behind every step, and make decisions with you.</p></div></li>
     </ul>
 
     <h3 class="sr">Why Families Trust Auburn Orthodontics</h3>
-    <ul class="cards">
+    <ul class="cards" data-reveal-group>
       <li class="card"><span class="ic"><svg aria-hidden="true"><use href="#i-growth"/></svg></span><h3>Proactive Growth Guidance</h3><p>Interceptive early treatment that guides jaw growth, addresses airway issues, and creates space naturally—often avoiding complex issues later.</p></li>
       <li class="card"><span class="ic"><svg aria-hidden="true"><use href="#i-scan"/></svg></span><h3>Advanced Digital Planning</h3><p>Visualize your exact transformation before you even begin with our Free Digital Before-&amp;-After Smile Simulation.</p></li>
       <li class="card"><span class="ic"><svg aria-hidden="true"><use href="#i-price"/></svg></span><h3>Complete Price &amp; Timing Transparency</h3><p>Clear guidance on what we see today, what happens if we wait, and custom payment options that fit your family’s budget.</p></li>
       <li class="card"><span class="ic"><svg aria-hidden="true"><use href="#i-family"/></svg></span><h3>Family-Centered Environment</h3><p>Warm, energetic, and encouraging care for children, teens, and adults in a supportive atmosphere.</p></li>
     </ul>
 
-    <div class="sec-cta"><a class="btn btn-navy" href="#offer-form" data-track="cta_click" data-loc="why">Claim My Deposit Match<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <div class="sec-cta" data-reveal><a class="btn btn-navy" href="#offer-form" data-track="cta_click" data-loc="why">Claim My Deposit Match<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
   </div>
 </section>
 
 <!-- ============ 4. WHAT WE HELP WITH ============ -->
 <section aria-labelledby="help-h">
   <div class="wrap">
-    <div class="sec-head center">
+    <div class="sec-head center" data-reveal>
       <span class="eyebrow">Specialized Care for Every Stage of Life</span>
       <h2 id="help-h">We Help With The Problems That Matter Most</h2>
       <p>You don’t just wake up wanting straight teeth—you want clarity on specific health and confidence concerns. We specialize in identifying and treating root issues early.</p>
     </div>
-    <ul class="help">
+    <ul class="help" data-reveal-group>
       <li class="item"><span class="ic"><svg aria-hidden="true"><use href="#i-air"/></svg></span><h3>Mouth Breathing &amp; Airway Health</h3><p>Snores, open-mouth resting, or restless sleep can be connected to jaw structure and airway space.</p></li>
       <!-- Early Crowding description: the approved source duplicated the airway text here. The line below is drawn only from the approved "Proactive Growth Guidance" copy. Flagged for client review. -->
       <li class="item"><span class="ic"><svg aria-hidden="true"><use href="#i-expand"/></svg></span><h3>Early Crowding &amp; Expansion</h3><p>Interceptive early treatment that guides jaw growth and creates space naturally—often avoiding complex issues later.</p></li>
@@ -455,9 +463,9 @@ footer a{color:rgba(255,255,255,.8)}
 <!-- ============ 5. DOCTOR + HOW IT WORKS ============ -->
 <section class="alt" aria-labelledby="doc-h">
   <div class="wrap">
-    <div class="doc">
+    <div class="doc" data-reveal>
       <div class="doc-media">
-        <img src="assets/img/dr-todd-steinhart-800.webp" srcset="assets/img/dr-todd-steinhart-480.webp 480w, assets/img/dr-todd-steinhart-800.webp 800w" sizes="(min-width: 900px) 400px, 100vw" width="800" height="800" alt="Dr. Todd Steinhart, orthodontist at Auburn Orthodontics, smiling in black scrubs" loading="lazy" decoding="async">
+        <img onload="this.classList.add('ld')" src="assets/img/dr-todd-steinhart-800.webp" srcset="assets/img/dr-todd-steinhart-480.webp 480w, assets/img/dr-todd-steinhart-800.webp 800w" sizes="(min-width: 900px) 400px, 100vw" width="800" height="800" alt="Dr. Todd Steinhart, orthodontist at Auburn Orthodontics, smiling in black scrubs" loading="lazy" decoding="async">
       </div>
       <div class="doc-body">
         <span class="eyebrow">Meet Your Doctor</span>
@@ -473,17 +481,17 @@ footer a{color:rgba(255,255,255,.8)}
     </div>
 
     <div class="how">
-      <div class="sec-head center">
+      <div class="sec-head center" data-reveal>
         <span class="eyebrow">How It Works</span>
         <h2>Your New Smile in 3 Easy Steps</h2>
       </div>
-      <ol class="steps">
+      <ol class="steps" data-reveal-group>
         <li class="step"><span class="num" aria-hidden="true">01</span><div><h3>Smile Strategy Session</h3><p>Book your complimentary consultation: meet Dr. Steinhart and our team to discuss your goals, concerns, and options in a welcoming, low-pressure environment.</p></div></li>
         <li class="step"><span class="num" aria-hidden="true">02</span><div><h3>Preview Your Results</h3><p>Receive a high-definition Digital 3D Scan &amp; Before-and-After Smile Simulation so you can see your precision outcome before committing.</p></div></li>
         <li class="step"><span class="num" aria-hidden="true">03</span><div><h3>Match Your Deposit &amp; Save</h3><p>Select your down payment, unlock your dollar-for-dollar practice match, and begin treatment with flexible monthly payments as low as $200/month or less.</p>
           <div class="chips" aria-label="Down payment options and matching amounts"><span>$500 <em>+ $500</em></span><span>$750 <em>+ $750</em></span><span>$1,000 <em>+ $1,000</em></span></div></div></li>
       </ol>
-      <div class="steps-cta"><a class="btn btn-primary" href="#offer-form" data-track="cta_click" data-loc="steps">Claim My $1,000 Deposit Match<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="steps-cta" data-reveal><a class="btn btn-primary" href="#offer-form" data-track="cta_click" data-loc="steps">Claim My $1,000 Deposit Match<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -491,18 +499,18 @@ footer a{color:rgba(255,255,255,.8)}
 <!-- ============ 6. REVIEWS + FAQ ============ -->
 <section aria-labelledby="rev-h">
   <div class="wrap">
-    <div class="rev-head">
+    <div class="rev-head" data-reveal>
       <div class="sec-head">
         <span class="eyebrow">Success Stories</span>
         <h2 id="rev-h">What Our Patients Are Saying</h2>
       </div>
       <div class="gbadge" aria-label="Google rating 5.0 from 77 reviews"><span class="big">5.0</span><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><small>77 Google Reviews</small></div>
     </div>
-    <div class="ticker" aria-label="Patient reviews">
+    <div class="ticker" aria-label="Patient reviews" data-reveal>
       <ul class="track"><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“I really had a great experience at Woloshyn. The staff is very friendly and make you feel like family, I would definitely recommend.”</blockquote><div class="who"><span class="av" aria-hidden="true">S</span><span><b>Samantha Keza</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“The most wonderful &amp; friendly office. So much so I have sent three generations of my family to Dr. Woloshin. Dr. has created an incredible environment of professional caring staff. Come here with your ortho. needs. You wont regret a minute of you or your children’s treatment!”</blockquote><div class="who"><span class="av" aria-hidden="true">M</span><span><b>Mike</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“We love Woloshyn! They are always on time, kind, follow up, and make sure my son gets what he needs.”</blockquote><div class="who"><span class="av" aria-hidden="true">B</span><span><b>Brianna Perez</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“We have been coming to Woloshyn Orthodontics for years. We have always had an amazing experience. We shopped around and picked Woloshyn Orthodontics because they were the best.”</blockquote><div class="who"><span class="av" aria-hidden="true">H</span><span><b>Heather Jay Gee</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“Excellent care and wonderful office staff!”</blockquote><div class="who"><span class="av" aria-hidden="true">A</span><span><b>Alison Pringle</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“Got the invisaligned to improve my smile and success. I am so happy with them and my smile now.”</blockquote><div class="who"><span class="av" aria-hidden="true">P</span><span><b>Patti Gifford</b>Google Review</span></div></li><li class="review"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“The greatest place to start a dental journey, the team has been great, very welcoming always positive and supportive of the process. I would give 10 stars if I could”</blockquote><div class="who"><span class="av" aria-hidden="true">A</span><span><b>Alondra Montero</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“I really had a great experience at Woloshyn. The staff is very friendly and make you feel like family, I would definitely recommend.”</blockquote><div class="who"><span class="av" aria-hidden="true">S</span><span><b>Samantha Keza</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“The most wonderful &amp; friendly office. So much so I have sent three generations of my family to Dr. Woloshin. Dr. has created an incredible environment of professional caring staff. Come here with your ortho. needs. You wont regret a minute of you or your children’s treatment!”</blockquote><div class="who"><span class="av" aria-hidden="true">M</span><span><b>Mike</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“We love Woloshyn! They are always on time, kind, follow up, and make sure my son gets what he needs.”</blockquote><div class="who"><span class="av" aria-hidden="true">B</span><span><b>Brianna Perez</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“We have been coming to Woloshyn Orthodontics for years. We have always had an amazing experience. We shopped around and picked Woloshyn Orthodontics because they were the best.”</blockquote><div class="who"><span class="av" aria-hidden="true">H</span><span><b>Heather Jay Gee</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“Excellent care and wonderful office staff!”</blockquote><div class="who"><span class="av" aria-hidden="true">A</span><span><b>Alison Pringle</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“Got the invisaligned to improve my smile and success. I am so happy with them and my smile now.”</blockquote><div class="who"><span class="av" aria-hidden="true">P</span><span><b>Patti Gifford</b>Google Review</span></div></li><li class="review" aria-hidden="true"><span class="stars" aria-label="5 stars"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span><blockquote>“The greatest place to start a dental journey, the team has been great, very welcoming always positive and supportive of the process. I would give 10 stars if I could”</blockquote><div class="who"><span class="av" aria-hidden="true">A</span><span><b>Alondra Montero</b>Google Review</span></div></li></ul>
     </div>
 
-    <div class="faq">
+    <div class="faq" data-reveal>
       <div class="sec-head center">
         <span class="eyebrow">We’ve Got Answers</span>
         <h2>Frequently Asked Questions</h2>
@@ -532,7 +540,7 @@ footer a{color:rgba(255,255,255,.8)}
 <section class="final" aria-labelledby="final-h">
   <div class="wrap">
     <div class="final-grid">
-      <div>
+      <div data-reveal>
         <span class="eyebrow">Limited Time Offer</span>
         <h2 id="final-h" style="margin-top:12px">Ready to Invest in a Confident, Healthy Smile?</h2>
         <p class="lead">Claim your Deposit Match up to $1,000 and schedule your Complimentary Smile Strategy Session today.</p>
@@ -548,7 +556,7 @@ footer a{color:rgba(255,255,255,.8)}
         </div>
       </div>
 
-      <div class="loc">
+      <div class="loc" data-reveal style="--d:2">
         <div class="map">
           <iframe title="Map to Auburn Orthodontics, 1314 8th Street NE Suite 102, Auburn, WA 98002" src="https://www.google.com/maps?q=1314+8th+Street+NE+Suite+102,+Auburn,+WA+98002&amp;ll=47.3149494,-122.2126016&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
@@ -617,6 +625,24 @@ var CONFIG = {
     }
   });
 
+  // Scroll reveal (one observer; elements are revealed once, then unobserved)
+  (function(){
+    var items = [];
+    document.querySelectorAll("[data-reveal]").forEach(function(el){ el.classList.add("rv"); items.push(el); });
+    document.querySelectorAll("[data-reveal-group]").forEach(function(g){
+      Array.prototype.forEach.call(g.children, function(el, i){ el.classList.add("rv"); el.style.setProperty("--d", Math.min(i, 6)); items.push(el); });
+    });
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      items.forEach(function(el){ el.classList.add("in"); }); return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting || en.boundingClientRect.bottom < 0) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {rootMargin: "0px 0px -6% 0px", threshold: 0.08});
+    items.forEach(function(el){ io.observe(el); });
+    // Safety net: reveal anything still hidden after 4s (e.g. print, unusual viewports)
+    setTimeout(function(){ items.forEach(function(el){ el.classList.add("in"); }); }, 4000);
+  })();
+
   // Sticky mobile bar: show after scrolling begins, hide while the form is on screen
   var sticky = document.getElementById("sticky"), formCard = document.getElementById("offer-form");
   var formVisible = true, scrolled = false;
@@ -636,6 +662,7 @@ var CONFIG = {
   var started = Date.now();
   document.getElementById("f-ts").value = String(started);
   document.getElementById("f-src").value = location.href;
+  document.querySelectorAll(".doc-media img").forEach(function(im){ if (im.complete && im.naturalWidth) im.classList.add("ld"); });
 
   // Optional visible challenge (Turnstile / reCAPTCHA)
   var botBox = document.getElementById("bot-protection");
