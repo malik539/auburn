@@ -637,7 +637,7 @@ var CONFIG = {
     }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if (en.isIntersecting || en.boundingClientRect.bottom < 0) { en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, {rootMargin: "0px 0px -6% 0px", threshold: 0.08});
+    }, {rootMargin: "10000px 0px -6% 0px", threshold: 0.08});
     items.forEach(function(el){ io.observe(el); });
     // Safety net: reveal anything still hidden after 4s (e.g. print, unusual viewports)
     setTimeout(function(){ items.forEach(function(el){ el.classList.add("in"); }); }, 4000);
